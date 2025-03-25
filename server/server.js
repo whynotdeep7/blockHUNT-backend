@@ -10,7 +10,10 @@ const cors = require('cors');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://block-hunt-frontend.vercel.app/'], // Add your frontend URLs
+  credentials: true, // If you're using tokens in headers
+}));
 app.use(express.json());
 
 // Error handling middleware for JSON parsing errors
